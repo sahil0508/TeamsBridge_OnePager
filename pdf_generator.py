@@ -1,11 +1,11 @@
 from reportlab.platypus import (
-    SimpleDocTemplate,
-    Paragraph,
-    Table,
-    TableStyle,
-    Spacer,
-    Image
-)
+        SimpleDocTemplate,
+        Paragraph,
+        Table,
+        TableStyle,
+        Spacer,
+        Image
+    )
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.pagesizes import A4
 from reportlab.lib import colors
@@ -27,7 +27,8 @@ def build_pdf(
     story,
     snapshot_rows,
     ceo_moves,
-    radar_image_path
+    radar_image_path,
+    visual_insight
 ):
     doc = SimpleDocTemplate(
         file_path,
@@ -161,9 +162,10 @@ def build_pdf(
 
     elements.append(Spacer(1, 6))
     elements.append(Paragraph(
-        "Overall pattern indicates broad, systemic risk rather than isolated weaknesses.",
+        visual_insight,
         body
     ))
+
 
     # ---- CEO MOVES ----
     elements.append(Spacer(1, 14))
