@@ -80,3 +80,32 @@ Tone: board-ready, direct, non-academic.
     )
 
     return response.choices[0].message.content
+
+def generate_visual_insight(scores_dict):
+    """
+    Returns a single board-ready sentence interpreting the radar pattern.
+    """
+
+    prompt = f"""
+You are an executive advisor.
+
+Based on the TEAMS scores below, write ONE concise sentence (max 20 words)
+interpreting the overall pattern shown in a radar chart.
+
+TEAMS scores:
+{scores_dict}
+
+Rules:
+- One sentence only
+- No recommendations
+- No labels (e.g. "Overall")
+- Board-ready, precise, neutral tone
+"""
+
+    response = client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=[{"role": "user", "content": prompt}],
+        temperature=0.2
+    )
+
+    return response.choices[0].message.content.strip()
