@@ -172,14 +172,5 @@ def build_pdf(
 
     # ---- FOOTER ----
     elements.append(Spacer(1, 18))
-    elements.append(Paragraph(
-        f"<i>Confidential • Generated {datetime.now().strftime('%d %b %Y')}</i>",
-        ParagraphStyle(
-            "footer",
-            fontSize=8,
-            textColor=MUTED,
-            alignment=1
-        )
-    ))
-
     doc.build(elements)
+
