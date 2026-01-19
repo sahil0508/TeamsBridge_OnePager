@@ -25,9 +25,9 @@ def compute_team_scores(df):
 
 
 def score_status(score):
-    if score >= 4.0:
+    if score >= 3.0:
         return "Strength"
-    elif score >= 3.0:
+    elif score >= 2:
         return "Fragile"
     else:
         return "At risk"
