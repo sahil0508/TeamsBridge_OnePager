@@ -1,170 +1,48 @@
 [
-  {
-    "text": "Within this executive team, sensitive issues and bad news are shared promptly and candidly.",
-    "category": "Trust"
-  },
-  {
-    "text": "I believe my peers on this team consistently act in the best interests of the enterprise, even when it conflicts with their functional agenda.",
-    "category": "Trust"
-  },
-  {
-    "text": "I am comfortable admitting to this team when I have made a mistake or misjudgment.",
-    "category": "Trust"
-  },
-  {
-    "text": "I trust my colleagues on this team to follow through on commitments made in our meetings.",
-    "category": "Trust"
-  },
-  {
-    "text": "Decisions we make as an executive team are transparent in rationale to each other, even when we disagree.",
-    "category": "Trust"
-  },
-  {
-    "text": "We speak with one voice after decisions are made, regardless of prior debate in the room.",
-    "category": "Trust"
-  },
-  {
-    "text": "I believe others on this team would actively support me if I faced a major setback or external challenge.",
-    "category": "Trust"
-  },
-  {
-    "text": "I feel safe raising ethical or reputational concerns, even if they slow down attractive opportunities.",
-    "category": "Trust"
-  },
+  { "id": "q01", "category": "Trust", "text": "Within this executive team, sensitive issues and bad news are shared promptly and candidly." },
+  { "id": "q02", "category": "Trust", "text": "I believe my peers on this team consistently act in the best interests of the enterprise, even when it conflicts with their functional agenda." },
+  { "id": "q03", "category": "Trust", "text": "I am comfortable admitting to this team when I have made a mistake or misjudgment." },
+  { "id": "q04", "category": "Trust", "text": "I trust my colleagues on this team to follow through on commitments made in our meetings." },
+  { "id": "q05", "category": "Trust", "text": "Decisions we make as an executive team are transparent in rationale to each other, even when we disagree." },
+  { "id": "q06", "category": "Trust", "text": "We speak with one voice after decisions are made, regardless of prior debate in the room." },
+  { "id": "q07", "category": "Trust", "text": "I believe others on this team would actively support me if I faced a major setback or external challenge." },
+  { "id": "q08", "category": "Trust", "text": "I feel safe raising ethical or reputational concerns, even if they slow down attractive opportunities." },
 
-  {
-    "text": "In this team, we take time to understand each other’s functional and personal constraints before pushing for decisions.",
-    "category": "Empathy"
-  },
-  {
-    "text": "My peers show genuine interest in my pressures (board, investors, regulators, markets) rather than dismissing them as excuses.",
-    "category": "Empathy"
-  },
-  {
-    "text": "When conflict arises, we work to understand underlying concerns rather than treating it as a win–lose argument.",
-    "category": "Empathy"
-  },
-  {
-    "text": "As a team, we consider the human impact on employees and customers when making major strategic or cost decisions.",
-    "category": "Empathy"
-  },
-  {
-    "text": "Members of this team are willing to flex timelines or expectations when a colleague is managing a critical personal or health issue.",
-    "category": "Empathy"
-  },
-  {
-    "text": "We actively seek to understand how our decisions land on middle managers and frontline teams before finalizing them.",
-    "category": "Empathy"
-  },
-  {
-    "text": "I feel I can surface concerns about my own wellbeing or sustainability in this role without being perceived as weak or less committed.",
-    "category": "Empathy"
-  },
-  {
-    "text": "We role-model listening and empathy in our behavior, knowing it sets the tone for the rest of the organization.",
-    "category": "Empathy"
-  },
+  { "id": "q09", "category": "Empathy", "text": "In this team, we take time to understand each other’s functional and personal constraints before pushing for decisions." },
+  { "id": "q10", "category": "Empathy", "text": "My peers show genuine interest in my pressures rather than dismissing them as excuses." },
+  { "id": "q11", "category": "Empathy", "text": "When conflict arises, we work to understand underlying concerns rather than treating it as a win–lose argument." },
+  { "id": "q12", "category": "Empathy", "text": "As a team, we consider the human impact on employees and customers when making major decisions." },
+  { "id": "q13", "category": "Empathy", "text": "Members of this team are willing to flex timelines when a colleague is managing a critical personal issue." },
+  { "id": "q14", "category": "Empathy", "text": "We actively seek to understand how our decisions land on middle managers and frontline teams." },
+  { "id": "q15", "category": "Empathy", "text": "I feel I can surface concerns about my own wellbeing without being perceived as weak." },
+  { "id": "q16", "category": "Empathy", "text": "We role-model listening and empathy, knowing it sets the tone for the organization." },
 
-  {
-    "text": "As an executive team, we have a shared, specific, and current view of our enterprise strategy and “what winning looks like” over the next 3–5 years.",
-    "category": "Alignment"
-  },
-  {
-    "text": "We are aligned on the few critical priorities that must be delivered in the next 12–24 months, and we use them to guide trade-offs.",
-    "category": "Alignment"
-  },
-  {
-    "text": "Our individual functional or business-unit goals are explicitly linked to agreed enterprise priorities.",
-    "category": "Alignment"
-  },
-  {
-    "text": "In this team, we make decisions primarily from an enterprise perspective, not based on functional turf or politics.",
-    "category": "Alignment"
-  },
-  {
-    "text": "We provide the organization with consistent messages about strategy, priorities, and performance, even when decisions are tough.",
-    "category": "Alignment"
-  },
-  {
-    "text": "Our resource allocation (capital, talent, time) matches our stated strategic priorities.",
-    "category": "Alignment"
-  },
-  {
-    "text": "We have clear, agreed decision rights and governance (who decides what, how, and when) for major enterprise choices.",
-    "category": "Alignment"
-  },
-  {
-    "text": "We regularly review and adjust priorities together in response to external shifts, rather than each reacting in silos.",
-    "category": "Alignment"
-  },
-  {
-    "text": "We visibly close the loop with the organization on big decisions (what we decided, why, and what it means for people).",
-    "category": "Alignment"
-  },
+  { "id": "q17", "category": "Alignment", "text": "As an executive team, we have a shared, specific view of enterprise strategy over the next 3–5 years." },
+  { "id": "q18", "category": "Alignment", "text": "We are aligned on the few critical priorities that must be delivered in the next 12–24 months." },
+  { "id": "q19", "category": "Alignment", "text": "Our functional goals are explicitly linked to agreed enterprise priorities." },
+  { "id": "q20", "category": "Alignment", "text": "We make decisions primarily from an enterprise perspective, not functional turf." },
+  { "id": "q21", "category": "Alignment", "text": "We provide the organization with consistent messages about strategy and priorities." },
+  { "id": "q22", "category": "Alignment", "text": "Our resource allocation matches our stated strategic priorities." },
+  { "id": "q23", "category": "Alignment", "text": "We have clear decision rights and governance for major enterprise choices." },
+  { "id": "q24", "category": "Alignment", "text": "We regularly review and adjust priorities together in response to external shifts." },
+  { "id": "q25", "category": "Alignment", "text": "We visibly close the loop with the organization on big decisions." },
 
-  {
-    "text": "As an executive team, we share a compelling, coherent story of why our organization exists and the impact it aims to have.",
-    "category": "Meaning / Purpose"
-  },
-  {
-    "text": "I personally feel a strong sense of purpose in the work we do as an executive team, beyond financial outcomes.",
-    "category": "Meaning / Purpose"
-  },
-  {
-    "text": "Our discussions regularly connect strategic decisions back to our stated mission and values.",
-    "category": "Meaning / Purpose"
-  },
-  {
-    "text": "We explicitly consider long-term value creation (customers, employees, communities, environment) in our strategic trade-offs.",
-    "category": "Meaning / Purpose"
-  },
-  {
-    "text": "We ensure that our purpose and values are reflected in how we handle crises and dilemmas, not just in normal times.",
-    "category": "Meaning / Purpose"
-  },
-  {
-    "text": "I believe our people across levels would recognize the same core purpose we describe in this room.",
-    "category": "Meaning / Purpose"
-  },
-  {
-    "text": "My work on this executive team aligns with my personal values and sense of contribution.",
-    "category": "Meaning / Purpose"
-  },
-  {
-    "text": "We actively steward the culture of the organization, not just the financial and operational results.",
-    "category": "Meaning / Purpose"
-  },
+  { "id": "q26", "category": "Meaning / Purpose", "text": "As an executive team, we share a compelling story of why our organization exists." },
+  { "id": "q27", "category": "Meaning / Purpose", "text": "I personally feel a strong sense of purpose in the work we do as an executive team." },
+  { "id": "q28", "category": "Meaning / Purpose", "text": "Our discussions connect strategic decisions back to mission and values." },
+  { "id": "q29", "category": "Meaning / Purpose", "text": "We consider long-term value creation in strategic trade-offs." },
+  { "id": "q30", "category": "Meaning / Purpose", "text": "We ensure purpose and values guide behavior in crises." },
+  { "id": "q31", "category": "Meaning / Purpose", "text": "People across levels would recognize the same core purpose we describe." },
+  { "id": "q32", "category": "Meaning / Purpose", "text": "My work on this executive team aligns with my personal values." },
+  { "id": "q33", "category": "Meaning / Purpose", "text": "We actively steward organizational culture." },
 
-  {
-    "text": "In this executive team, I can raise dissenting views or challenge assumptions without fear of negative career consequences.",
-    "category": "Psychological Safety"
-  },
-  {
-    "text": "We can admit when we do not know something or need help, without losing credibility in the group.",
-    "category": "Psychological Safety"
-  },
-  {
-    "text": "When someone raises a risk, concern, or “inconvenient truth,” we respond with curiosity and problem-solving, not defensiveness.",
-    "category": "Psychological Safety"
-  },
-  {
-    "text": "Robust, even heated, debate is welcomed as long as it is in service of the enterprise and handled respectfully.",
-    "category": "Psychological Safety"
-  },
-  {
-    "text": "We surface and learn from failed initiatives openly at this level, rather than burying or spinning them.",
-    "category": "Psychological Safety"
-  },
-  {
-    "text": "I feel safe naming issues in our own effectiveness as an executive team (e.g., dynamics, decision-making, capability gaps).",
-    "category": "Psychological Safety"
-  },
-  {
-    "text": "We make it explicitly okay for our direct reports to bring problems and half-baked ideas to us without fear.",
-    "category": "Psychological Safety"
-  },
-  {
-    "text": "The way we behave in this room makes it easier for teams below us to speak up, experiment, and report issues.",
-    "category": "Psychological Safety"
-  }
+  { "id": "q34", "category": "Psychological Safety", "text": "I can raise dissenting views without fear of negative career consequences." },
+  { "id": "q35", "category": "Psychological Safety", "text": "We can admit when we do not know something without losing credibility." },
+  { "id": "q36", "category": "Psychological Safety", "text": "When risks are raised, we respond with curiosity, not defensiveness." },
+  { "id": "q37", "category": "Psychological Safety", "text": "Robust debate is welcomed when handled respectfully." },
+  { "id": "q38", "category": "Psychological Safety", "text": "We surface and learn from failures openly." },
+  { "id": "q39", "category": "Psychological Safety", "text": "I feel safe naming issues in our own executive team effectiveness." },
+  { "id": "q40", "category": "Psychological Safety", "text": "Direct reports can bring problems and half-baked ideas without fear." },
+  { "id": "q41", "category": "Psychological Safety", "text": "Our behavior makes it easier for teams below us to speak up." }
 ]
+ 
