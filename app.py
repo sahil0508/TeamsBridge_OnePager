@@ -3,8 +3,6 @@ import pandas as pd
 import tempfile
 import os
 import json
-import re
-import unicodedata
 
 from analysis_engine import (
     compute_team_scores,
@@ -24,56 +22,51 @@ st.title("Executive Team One-Page Diagnostic")
 
 
 # ---------------------------------------------------------
-# Text normalization
-# ---------------------------------------------------------
-def normalize_text(text: str) -> str:
-    if not isinstance(text, str):
-        return text
-
-    text = unicodedata.normalize("NFKC", text)
-    text = re.sub(r"[\u200b\u200c\u200d\uFEFF]", "", text)
-    text = re.sub(r"\s+", " ", text)
-
-    return text.strip()
-
-
-# ---------------------------------------------------------
-# Load question → category mapping
+# Load question → category mapping (ID-based, verbatim text)
 # ---------------------------------------------------------
 def load_question_map(path="questions.json"):
+    """
+    questions.json format:
+    [
+      { "id": "q01", "category": "Trust", "text": "..." }
+    ]
+    """
     with open(path, "r", encoding="utf-8") as f:
         questions = json.load(f)
 
-    return {
-        normalize_text(q["text"]): q["category"]
-        for q in questions
-    }
+    return {q["id"]: q["category"] for q in questions}
 
 
 # ---------------------------------------------------------
-# Detect raw vs standardized survey
+# Detect raw (Airtable-style) survey
 # ---------------------------------------------------------
 def is_raw_survey(df):
-    return "Timestamp" in df.columns and "question" not in df.columns
+    return any(str(c).lower().startswith("q") for c in df.columns)
 
 
 # ---------------------------------------------------------
 # Convert raw (wide) survey → standardized (long)
 # ---------------------------------------------------------
 def convert_raw_survey(df_raw, client_name, question_map):
-    timestamp_col = "Timestamp"
+    """
+    Expected raw format:
+    client | timestamp | language | q01 | q02 | ... | q41
+    """
 
-    # Only keep real question columns
-    question_cols = [
-        c for c in df_raw.columns
-        if normalize_text(c) in question_map
-    ]
+    # Normalize column names
+    df_raw = df_raw.rename(columns={c: c.lower() for c in df_raw.columns})
+
+    required_cols = {"client", "timestamp"}
+    if not required_cols.issubset(df_raw.columns):
+        raise ValueError("Raw survey must contain 'client' and 'timestamp' columns")
+
+    question_cols = [c for c in df_raw.columns if c in question_map]
 
     if not question_cols:
-        raise ValueError("No survey question columns matched questions.json")
+        raise ValueError("No question columns (q01–q41) matched questions.json")
 
     df_long = df_raw.melt(
-        id_vars=[timestamp_col],
+        id_vars=["timestamp"],
         value_vars=question_cols,
         var_name="question",
         value_name="score"
@@ -81,7 +74,6 @@ def convert_raw_survey(df_raw, client_name, question_map):
 
     df_long = df_long.dropna(subset=["score"])
 
-    df_long["question"] = df_long["question"].apply(normalize_text)
     df_long["category"] = df_long["question"].map(question_map)
 
     missing = df_long[df_long["category"].isna()]["question"].unique()
@@ -89,7 +81,6 @@ def convert_raw_survey(df_raw, client_name, question_map):
         raise ValueError(f"Unmapped questions found: {missing}")
 
     df_long["client"] = client_name
-    df_long["timestamp"] = df_long[timestamp_col]
 
     return df_long[
         ["client", "question", "category", "score", "timestamp"]
@@ -113,21 +104,23 @@ if uploaded_file:
     question_map = load_question_map()
 
     # -----------------------------------------------------
-    # RAW survey path (multi-client supported)
+    # RAW survey path (Airtable-style)
     # -----------------------------------------------------
     if is_raw_survey(df_raw):
-        st.info("Raw survey format detected.")
+        st.info("Raw Airtable-style survey detected.")
 
-        if "Client" not in df_raw.columns:
-            st.error("Raw survey file must contain a 'Client' column.")
+        df_raw.columns = [c.lower() for c in df_raw.columns]
+
+        if "client" not in df_raw.columns:
+            st.error("Raw survey file must contain a 'client' column.")
             st.stop()
 
         client_name = st.selectbox(
             "Select client",
-            sorted(df_raw["Client"].dropna().unique())
+            sorted(df_raw["client"].dropna().unique())
         )
 
-        df_raw_client = df_raw[df_raw["Client"] == client_name]
+        df_raw_client = df_raw[df_raw["client"] == client_name]
 
         df = convert_raw_survey(
             df_raw=df_raw_client,
@@ -197,6 +190,7 @@ if uploaded_file:
         )
 
         visual_insight = generate_visual_insight(scores.to_dict())
+
         build_pdf(
             tmp_pdf.name,
             client_name,
