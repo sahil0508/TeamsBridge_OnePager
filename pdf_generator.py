@@ -170,7 +170,4 @@ def build_pdf(
     # ---- CEO MOVES ----
     elements.append(Spacer(1, 14))
 
-    # ---- FOOTER ----
-    elements.append(Spacer(1, 18))
-    doc.build(elements)
 
